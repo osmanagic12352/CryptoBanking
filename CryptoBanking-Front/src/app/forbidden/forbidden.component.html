@@ -1,0 +1,53 @@
+<head><link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    </head>
+    <body>
+      <nav class="navbar navbar-expand-lg" *ngIf ="userAuth">
+        <div class="container-fluid">
+          <a class="navbar-brand" routerLink="/home"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">                      
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/transaction">Trguj</a>
+              </li>           
+            </ul>
+            <ul class="navbar-nav me-right mb-2 mb-lg-0">
+              <li ngbDropdown class="nav-item">
+                <a ngbDropdownToggle class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" *ngIf="service.userDetails">
+                  Pozdrav, {{service.userDetails.fullName}}
+                </a>
+                <ul ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#" (click)="onLogout()">Odjavi se</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+      <div class="message">You are not authorized.
+      </div>
+      <div class="message2">You tried to access a page you did not have prior authorization for.</div>
+      <div class="containerF">
+        <div class="neon">403</div>
+        <div class="door-frame">
+          <div class="door">
+            <div class="rectangle">
+          </div>
+            <div class="handle">
+              </div>
+            <div class="window">
+              <div class="eye">
+              </div>
+              <div class="eye eye2">
+              </div>
+              <div class="leaf">
+              </div> 
+            </div>
+          </div>  
+        </div>
+      </div>
+    </body>

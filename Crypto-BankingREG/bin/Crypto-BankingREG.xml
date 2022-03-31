@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Crypto-BankingREG</name>
+    </assembly>
+    <members>
+        <member name="M:Crypto_BankingREG.Controllers.ApplicationUserController.AddAdmin(Crypto_BankingREG.Models.ApplicationUser)">
+            <summary>
+            Registriraj Admina
+            </summary>
+            <remarks>
+            Ovako treba da bude
+            </remarks>
+        </member>
+    </members>
+</doc>

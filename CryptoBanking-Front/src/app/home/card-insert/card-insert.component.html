@@ -1,0 +1,91 @@
+<nav class="navbar navbar-expand-lg" *ngIf="userAuth">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/home"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      </ul>
+      <ul class="navbar-nav me-right mb-2 mb-lg-0">
+        <li ngbDropdown class="nav-item">
+          <a ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false" *ngIf="service_user.userDetails">
+            Pozdrav, {{service_user.userDetails.fullName}}
+          </a>
+          <ul ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" routerLink="/one-user/one1-card">Uredi karticu</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="#" (click)="onLogout()">Odjavi se</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav><br>
+<div class="container1">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="wrapper">
+        <div class="wrapped-div-uredi">
+          <div class="tab-header">
+          <h2  routerLinkActive='active'>Dodaj karticu</h2>
+           </div><br>
+          <form novalidate #form="ngForm" (submit)="onSubmit(form)" novalidate>
+            <input type="hidden" name="id" value="service.formData.id" />
+            <div class="form-group">
+              <label>Vlasnika Kartice</label>
+              <input type="text" class="form-control form-control-lg" placeholder="Ime i Prezime Vlasnika"
+                name="cardOwnerName" #cardOwnerName="ngModel" pattern="^[a-zA-Z]+\s[a-zA-Z]*$" minlength="3"
+                [(ngModel)]="service.formData.cardOwnerName" required
+                [class.invalid]="cardOwnerName.invalid && cardOwnerName.touched">
+              <span class="help-block" *ngIf="cardOwnerName.errors?.pattern">*Naziv vlasnika kartice mora biti puno ime
+                i prezime, bez č,ć,ž,đ,š!<br></span>
+              <span class="help-block" *ngIf="cardOwnerName.invalid && cardOwnerName.touched">*Upišite naziv vlasnika
+                kartice!</span>
+            </div><br>
+            <div class="form-group">
+              <label>Broj Kartice</label>
+              <input type="text" class="form-control form-control-lg" placeholder="XXXXXXXXXXXXXXXX" name="cardNumber"
+                #cardNumber="ngModel" [(ngModel)]="service.formData.cardNumber" pattern="[0-9]*" required maxlength="16"
+                minlength="16" [class.invalid]="cardNumber.invalid && cardNumber.touched">
+              <span class="help-block" *ngIf="cardNumber.errors?.pattern">*Samo brojevi dozvoljeni!<br></span>
+              <span class="help-block" *ngIf="cardNumber.invalid && cardNumber.touched">*Molimo upišite 16-to
+                znamenkasti broj!</span>
+            </div><br>
+            <div class="form-group">
+              <label>Datum Isteka Kartice</label>
+              <input type="text" class="form-control form-control-lg" placeholder="MM/GG" name="expDate"
+                #expDate="ngModel" [(ngModel)]="service.formData.expDate" required
+                pattern="^(0[1-9]|1[0-2])[\/](2[2-9]|[3-4][0-9])$" maxlength="5"
+                [class.invalid]="expDate.invalid && expDate.touched">
+              <span class="help-block" *ngIf="expDate.errors?.pattern">*Neispravan datum isteka kartice!<br></span>
+              <span class="help-block" *ngIf="expDate.invalid && expDate.touched">*Molimo upišite datum isteka kartice u
+                formatu: MM/GG</span>
+            </div><br>
+            <div class="form-group">
+              <label>CVV</label>
+              <input type="text" class="form-control form-control-lg" placeholder="XXX" name="cvv" #cvv="ngModel"
+                [(ngModel)]="service.formData.cvv" required pattern="[0-9]*" maxlength="3" minlength="3"
+                [class.invalid]="cvv.invalid && cvv.touched">
+              <span class="help-block" *ngIf="cvv.errors?.pattern">*Samo brojevi dozvoljeni!<br></span>
+              <span class="help-block" *ngIf="cvv.invalid && cvv.touched">*Upišite troznamekasti CVV</span>
+            </div><br>
+            <div class="form-group">
+              <button class="btn btn-secondary" type="submit" [disabled]="form.invalid">POTVRDI</button><br>
+            </div><br>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-7">
+      <p style="font-size: 4rem;"><b>DODAJ KARTICU</b></p>
+      <p style="font-size: x-large;">Krenuli ste trgovati i prebacilo vas je na ovu stranice? To je zato što nemate kreiranu karticu. Da bi ste trgovali kreiraj karticu i započni trgovinu!</p>
+      <img src="/assets/Images/card.png" alt="card" class="card-img">
+    </div>
+  </div>
+</div> 

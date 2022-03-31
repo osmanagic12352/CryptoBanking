@@ -1,0 +1,47 @@
+<div class="wrapper">
+    <form novalidate #form="ngForm" (submit)="updateRecord(form)">
+        <input type="hidden" name="id" value="service.formData.id" />
+        <div class="form-group">
+            <label>Vlasnika Kartice</label>
+            <input type="text" class="form-control form-control-lg" placeholder="Ime i Prezime Vlasnika"
+                name="nazivVlasnikaKartice" #cardOwnerName="ngModel"
+                pattern="^[a-zA-Z čćžđšČĆŽĐŠ]+\s[a-zA-Z čćžđšČĆŽĐŠ]{1,}$" minlength="3"
+                [(ngModel)]="service.formData.cardOwnerName" required
+                [class.invalid]="cardOwnerName.invalid && cardOwnerName.touched">
+            <span class="help-block" *ngIf="cardOwnerName.errors?.pattern">*Naziv vlasnika kartice mora biti puno ime i
+                prezime, bez č,ć,ž,đ,š!<br></span>
+            <span class="help-block" *ngIf="cardOwnerName.invalid && cardOwnerName.touched">*Upišite naziv vlasnika
+                kartice!</span>
+        </div><br>
+        <div class="form-group">
+            <label>Broj Kartice</label>
+            <input type="text" class="form-control form-control-lg" placeholder="XXXXXXXXXXXXXXXX" name="brojKartice"
+                #cardNumber="ngModel" [(ngModel)]="service.formData.cardNumber" pattern="[0-9]*" required maxlength="16"
+                minlength="16" [class.invalid]="cardNumber.invalid && cardNumber.touched">
+            <span class="help-block" *ngIf="cardNumber.errors?.pattern">*Samo brojevi dozvoljeni!<br></span>
+            <span class="help-block" *ngIf="cardNumber.invalid && cardNumber.touched">*Molimo upišite 16-to znamenkasti
+                broj!</span>
+        </div><br>
+        <div class="form-group">
+            <label>Datum Isteka Kartice</label>
+            <input type="text" class="form-control form-control-lg" placeholder="MM/GG" name="datumIstekaKartice"
+                #expDate="ngModel" [(ngModel)]="service.formData.expDate" required
+                pattern="^(0[1-9]|1[0-2])[\/](2[2-9]|[3-4][0-9])$" maxlength="5"
+                [class.invalid]="expDate.invalid && expDate.touched">
+            <span class="help-block" *ngIf="expDate.errors?.pattern">*Neispravan datum isteka kartice!<br></span>
+            <span class="help-block" *ngIf="expDate.invalid && expDate.touched">*Molimo upišite datum isteka kartice u
+                formatu: MM/GG</span>
+        </div><br>
+        <div class="form-group">
+            <label>CVV</label>
+            <input type="text" class="form-control form-control-lg" placeholder="XXX" name="cvv" #cvv="ngModel"
+                [(ngModel)]="service.formData.cvv" required pattern="[0-9]*" maxlength="3" minlength="3"
+                [class.invalid]="cvv.invalid && cvv.touched">
+            <span class="help-block" *ngIf="cvv.errors?.pattern">*Samo brojevi dozvoljeni!<br></span>
+            <span class="help-block" *ngIf="cvv.invalid && cvv.touched">*Upišite troznamekasti CVV</span>
+        </div><br>
+        <div class="form-group">
+            <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="form.invalid">POTVRDI</button><br>
+        </div><br>
+    </form>
+</div>

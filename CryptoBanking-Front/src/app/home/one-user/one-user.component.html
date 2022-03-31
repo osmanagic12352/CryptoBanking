@@ -1,0 +1,114 @@
+<nav class="navbar navbar-expand-lg" *ngIf="userAuth">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/home"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <div class="tab-header">
+            <a class="nav-link" routerLink="/transaction">Trguj</a>
+          </div>
+        </li>
+      </ul>
+      <ul class="navbar-nav me-right mb-2 mb-lg-0">
+        <li ngbDropdown class="nav-item">
+          <a ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false" *ngIf="service.userDetails">
+            Pozdrav, {{service.userDetails.fullName}}
+          </a>
+          <ul ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" routerLink="/card-insert">Dodaj karticu</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="#" (click)="onLogout()">Odjavi se</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav><br>
+<div class="container1">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="wrapper">
+        <div class="wrapped-div-uredi">
+          <div class="tab-header">
+            <h2 routerLink="one1-user" routerLinkActive='active'>Uredi korisnika</h2>
+            <h2 routerLink="one1-card" routerLinkActive='active'>Uredi karticu</h2>
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-7">
+      <p style="font-size: 4rem;"><b>UREDI PODATKE</b></p>
+      <p style="font-size: x-large;">Kako bi ste uredili svoju karticu ili svoje osobne podatke, jednostavno kliknike u tablicu u kojoj pišu podaci koje želite promjenuti i nakon potvrde osjvežite stranicu da bi vidjeli promjenu!</p><br><br><br>
+      <div class="row">
+        <div class="col-md-2">
+          <img src="/assets/Images/edit.png" alt="edit" class="edit-img">
+        </div>
+        <div class="col-md-10">
+      <div class="wrapper">
+        <div class="wrapped-div-uredi">
+          <div class="tab-header">
+            <table class="table">
+              <thead class="thead-light">
+                <tr>
+                  <th>Username</th>
+                  <th>Email</th>
+                  <th>Full Name</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngIf="service.userDetails" routerLink="one1-user" routerLinkActive='active'>
+                  <td (click)="populateForm(service.userDetails)">{{service.userDetails.userName}}</td>
+                  <td (click)="populateForm(service.userDetails)">{{service.userDetails.email}}</td>
+                  <td (click)="populateForm(service.userDetails)">{{service.userDetails.fullName}}</td>
+                  <td>
+                    <i class="far fa-trash-alt fa-lg text-danger" (click)="onDeleteUser(service.userDetails.id)">Delete</i>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <div class="wrapper">
+        <div class="wrapped-div-uredi">
+          <div class="tab-header">
+          <table class="table">
+            <thead class="thead-light">
+              <tr>
+                <th>Vlasnik kartice</th>
+                <th>Broj kartice</th>
+                <th>Datum isteka kartice</th>
+                <th>CVV</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngIf="cardDetails" routerLink="one1-card" routerLinkActive='active'>
+                <td (click)="populateForm1(cardDetails)">{{cardDetails.cardOwnerName}}</td>
+                <td (click)="populateForm1(cardDetails)">{{cardDetails.cardNumber}}</td>
+                <td (click)="populateForm1(cardDetails)">{{cardDetails.expDate}}</td>
+                <td (click)="populateForm1(cardDetails)">{{cardDetails.cvv}}</td>
+                <td>
+                  <i class="far fa-trash-alt fa-lg text-danger" (click)="onDeleteCard(cardDetails.id)">Delete</i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
+    </div>
+  </div>

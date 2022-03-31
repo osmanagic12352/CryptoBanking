@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Crypto-BankingREG</name>
+    </assembly>
+    <members>
+        <member name="M:Crypto_BankingREG.Controllers.ApplicationUserController.InsertUser(Crypto_BankingREG.Models.ApplicationUserView)">
+            <summary>
+            Registracija korisnika
+            </summary> 
+            <remarks>
+            Password mora sadržazi minimalno:<br>
+            6 znakova</br>
+            1 broj
+            </remarks>
+        </member>
+        <member name="M:Crypto_BankingREG.Controllers.ApplicationUserController.InsertAdmin(Crypto_BankingREG.Models.ApplicationUserView)">
+            <summary>
+            Registracija Admina
+            </summary> 
+            <remarks>
+            Password mora sadržazi minimalno:<br>
+            6 znakova</br>
+            1 broj
+            </remarks>
+        </member>
+        <member name="M:Crypto_BankingREG.Controllers.ApplicationUserController.GetAllUsers">
+            <summary>
+            Dohvatanje svih korisnika
+            </summary>
+        </member>
+        <member name="M:Crypto_BankingREG.Controllers.ApplicationUserController.GetUserById(System.String)">
+            <summary>
+            Dohvatanje odabranog korisnika
+            </summary>
+        </member>
+        <member name="M:Crypto_BankingREG.Controllers.ApplicationUserController.UpdateUserById(System.String,Crypto_BankingREG.Models.ApplicationUserView)">
+            <summary>
+            Uređivanje korisnika
+            </summary>
+        </member>
+        <member name="M:Crypto_BankingREG.Controllers.ApplicationUserController.DeleteUserById(System.String)">
+            <summary>
+            Brisanje korisnika
+            </summary> 
+        </member>
+        <member name="M:Crypto_BankingREG.Controllers.PaymentDetailController.AddPaymentDetail(Crypto_BankingREG.Models.ViewModels.PaymentDetailView)">
+            <summary>
+            Dodavanje kartice
+            </summary> 
+        </member>
+        <member name="M:Crypto_BankingREG.Controllers.PaymentDetailController.GetAllPaymentDetails">
+            <summary>
+            Dohvatanje svih kartica
+            </summary> 
+        </member>
+        <member name="M:Crypto_BankingREG.Controllers.PaymentDetailController.GetPaymentDetailById(System.Int32)">
+            <summary>
+            Dohvatanje odabrane korisnika
+            </summary> 
+        </member>
+        <member name="M:Crypto_BankingREG.Controllers.PaymentDetailController.UpdatePaymentDetailById(System.Int32,Crypto_BankingREG.Models.ViewModels.PaymentDetailView)">
+            <summary>
+            Uređivanje podataka kartice
+            </summary> 
+        </member>
+        <member name="M:Crypto_BankingREG.Controllers.PaymentDetailController.DeletePaymentDetailById(System.Int32)">
+            <summary>
+            Brisanje kartice
+            </summary> 
+        </member>
+        <member name="M:Crypto_BankingREG.Controllers.PaymentDetailController.EditCard(Crypto_BankingREG.Models.ViewModels.PaymentDetailView)">
+            <summary>
+            Dodavanje kartice
+            </summary> 
+        </member>
+        <member name="M:Crypto_BankingREG.Controllers.TransactionController.AddTransaction(Crypto_BankingREG.Models.ViewModels.TransactionView)">
+            <summary>
+            Dodavanje transactions
+            </summary> 
+        </member>
+        <member name="M:Crypto_BankingREG.Controllers.TransactionController.GetAllTransaction">
+            <summary>
+            Dohvatanje svih transakcija
+            </summary> 
+        </member>
+        <member name="M:Crypto_BankingREG.Controllers.TransactionController.GetTransactionById(System.Int32)">
+            <summary>
+            Dohvatanje pojedine transactions
+            </summary> 
+        </member>
+        <member name="M:Crypto_BankingREG.Controllers.TransactionController.UpdateTransactionById(System.Int32,Crypto_BankingREG.Models.ViewModels.TransactionView)">
+            <summary>
+            Uređivanje transactions
+            </summary> 
+        </member>
+        <member name="M:Crypto_BankingREG.Controllers.TransactionController.DeleteTransactionById(System.Int32)">
+            <summary>
+            Brisanje transactions
+            </summary> 
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,99 @@
+<nav class="navbar navbar-expand-lg" *ngIf="userAuth">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/home"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      </ul>
+      <ul class="navbar-nav me-right mb-2 mb-lg-0">
+        <input class="form-control" type="search" placeholder="Search coin" aria-label="Search" (keyup)="searchCoin()"
+          [(ngModel)]="searchText">
+        <li ngbDropdown class="nav-item">
+          <a ngbDropdownToggle class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false" *ngIf="service.userDetails">
+            Pozdrav, {{service.userDetails.fullName}}
+          </a>
+          <ul ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="#" (click)="onLogout()">Odjavi se</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav><br>
+<div class="container1">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+          <div class="wrapped-divV">
+            <table class="valute">
+              <tr>
+                <td class="odaberi-valutu"><h1 style="color: black;">Odaberi kripto valutu:</h1>
+              </td>
+                <td><img class="BTC" src="/assets/Images/BTC.png" routerLink="btc" routerLinkActive='active'
+                    type="button">
+                </td>
+                <td><img class="ETH" src="/assets/Images/ETH.png" routerLink="eth" routerLinkActive='active'
+                    type="button">
+                </td>
+                <td><img class="ADA" src="/assets/Images/ADA.png" routerLink="ada" routerLinkActive='active'
+                    type="button">
+                </td>
+                <td><img class="USDT" src="/assets/Images/USDT.png" routerLink="usdt" routerLinkActive='active'
+                    type="button"></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6 p-3">
+        <div class="wrapped-div-tecaj1">
+          <div class="tecaj1">
+            <div class="container-table1">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th *ngFor="let title of titles" style="color: black;">{{title}}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let coin of service_coin.filteredCoins | slice:0:18; let i = index">
+                    <td style="width:32%; color: black;">
+                      <img [src]="coin.image" alt="{{coin.name}}" style="width: 2rem;">
+                      <span class="ms-3">
+                        <b>{{coin.name}}</b>
+                      </span>
+                      <span class="text-muted text-uppercase">
+                        {{coin.symbol}}
+                      </span>
+                    </td>
+                    <td style="color: black;">
+                      {{(coin.current_price*1.75).toFixed(2).toLocaleString()}}
+                    </td>
+                    <td style="color: black;">
+                      {{(coin.current_price*1.02*1.75).toFixed(2).toLocaleString()}}
+                    </td>
+                    <td style="color: black;">
+                      {{(coin.current_price*0.98*1.75).toFixed(2).toLocaleString()}}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        
+      </div>
+
+    </div>
+    <div class="col-6 p-3" style="float: right;">
+      <router-outlet></router-outlet>
+    </div>
+  </div>

@@ -1,0 +1,64 @@
+<nav class="navbar navbar-expand-lg" *ngIf ="userAuth">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="/home"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">         
+        </ul>
+        <ul class="navbar-nav me-right mb-2 mb-lg-0">
+          <li ngbDropdown class="nav-item">
+            <a ngbDropdownToggle class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" *ngIf="service_user.userDetails">
+              Pozdrav, {{service_user.userDetails.fullName}}
+            </a>
+            <ul ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#" (click)="onLogout()">Odjavi se</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+</nav><br>
+<div class="row">
+    <div class="col-md-5">
+        <div class="wrapper">
+            <div class="wrapped-div">
+                <div class="tab-header">
+                    <h2 routerLink="uredi-karticu" routerLinkActive='active'>Uredi karticu</h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-10 offset-md-1">
+                        <router-outlet></router-outlet>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th>Card Id</th>
+                    <th>Card Owner</th>
+                    <th>Card Number</th>
+                    <th>Exp. Date</th>
+                    <th>UserID</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pd of service.list" routerLink="transaction" routerLinkActive='active'>
+                    <td (click)="populateForm(pd)">{{pd.id}}</td>
+                    <td (click)="populateForm(pd)">{{pd.cardOwnerName}}</td>
+                    <td (click)="populateForm(pd)">{{pd.cardNumber}}</td>
+                    <td (click)="populateForm(pd)">{{pd.expDate}}</td>
+                    <td (click)="populateForm(pd)">{{pd.userId}}</td>
+                    <td>
+                        <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(pd.id)">Delete</i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
