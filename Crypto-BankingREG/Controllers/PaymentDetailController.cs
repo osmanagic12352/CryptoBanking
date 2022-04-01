@@ -95,7 +95,9 @@ namespace Crypto_BankingREG.Controllers
             }
         }
 
-
+        /// <summary>
+        /// Kartica korisnika
+        /// </summary>
         #pragma warning disable CS1998
         [Authorize]
         [HttpGet("get-user-card")]      

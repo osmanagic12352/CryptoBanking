@@ -94,7 +94,7 @@ export class HomeComponent implements OnInit {
 
           datasets: [
             {
-              label: 'Solana (zadnja 3 dana)',
+              label: 'Solana (cijena zadnja 3 dana u $)',
               borderColor: "rgba(165,55,253,1)",
               backgroundColor: "rgba(165,55,253,0.5)",
               fill: true,
@@ -151,7 +151,7 @@ export class HomeComponent implements OnInit {
 
           datasets: [
             {
-              label: 'Bitcoin (zadnja 3 dana)',
+              label: 'Bitcoin (cijena zadnja 3 dana u $)',
               borderColor: "rgba(230,126,34,1)",
               backgroundColor: "rgba(230,126,34,0.5)",
               fill: true,
@@ -207,7 +207,7 @@ export class HomeComponent implements OnInit {
 
           datasets: [
             {
-              label: 'Ethereum (zadnja 3 dana)',
+              label: 'Ethereum (cijena zadnja 3 dana u $)',
               borderColor: "rgba(37,41,88,1)",
               backgroundColor: "rgba(50,50,120,0.5)",
               fill: true,
@@ -263,7 +263,7 @@ export class HomeComponent implements OnInit {
 
           datasets: [
             {
-              label: 'Binance Coin (zadnja 3 dana)',
+              label: 'Binance Coin (cijena zadnja 3 dana u $)',
               borderColor: "rgba(193,161,0,1)",
               backgroundColor: "rgba(193,161,0,0.5)",
               fill: true,
@@ -319,7 +319,7 @@ export class HomeComponent implements OnInit {
 
           datasets: [
             {
-              label: 'Cardano (zadnja 3 dana)',
+              label: 'Cardano (cijena zadnja 3 dana u $)',
               borderColor: "rgba(149,165,166,1)",
               backgroundColor: "rgba(210,215,211,1)",
               fill: true,
@@ -375,7 +375,7 @@ export class HomeComponent implements OnInit {
 
           datasets: [
             {
-              label: 'Ripple (zadnja 3 dana)',
+              label: 'Ripple (cijena zadnja 3 dana u $)',
               borderColor: "black",
               backgroundColor: "rgba(0,0,0,0.5)",
               fill: true,

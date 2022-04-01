@@ -2,10 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { Coin } from '../shared/coinApi.model';
 import { coinApiService } from '../shared/coinApi.service';
-import { LoginService } from '../shared/login.service';
-import { TransactionService } from '../shared/transaction.service';
 import { UserService } from '../shared/user.service';
 
 
@@ -17,7 +14,7 @@ import { UserService } from '../shared/user.service';
 })
 export class TransactionComponent implements OnInit {
 
-  titles: string[] = ['Valuta', 'Cijena (BAM)', 'Kupovni (BAM)', 'Sellni (BAM)'];
+  titles: string[] = ['Valuta', 'Cijena (BAM)', 'Kupovni (BAM)', 'Prodajni (BAM)'];
   searchText: string = '';
 
 

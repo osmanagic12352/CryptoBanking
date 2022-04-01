@@ -33,7 +33,6 @@ export class TransactionListComponent implements OnInit {
 
   }
 
-
   populateForm(selectedRecord: Transaction) {
     this.service.formData = Object.assign({}, selectedRecord);
   }

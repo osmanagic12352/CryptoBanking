@@ -36,6 +36,12 @@ namespace Crypto_BankingREG.Controllers
             _passwordHasher = passwordHash;
         }
 
+        /// <summary>
+        /// Logiranje korisnika
+        /// </summary> 
+        /// <remarks>
+        /// Upišite svoj username i password kako biste se prijavili na stranicu!
+        /// </remarks>
         [HttpPost]
         [Route("login")]
         public async Task<IActionResult> Login([FromBody] LoginModelView login)
@@ -72,7 +78,10 @@ namespace Crypto_BankingREG.Controllers
 
                 return Ok(new { token = new JwtSecurityTokenHandler().WriteToken(TokenSettings) });
             }
-            return Unauthorized();
+            else
+            {
+                throw new Exception("Neuspjela prijava! (Da li ste upisali dobro svoje korisničke podatke?)");            
+            }
         }
 
 
@@ -125,7 +134,12 @@ namespace Crypto_BankingREG.Controllers
 
         }
 
-
+        /// <summary>
+        /// Informacije korisnika
+        /// </summary> 
+        /// <remarks>
+        /// Ovdje možete provjeriti svoje informacije!
+        /// </remarks>
         [Authorize]
         [HttpGet("get-loged-UserInfo")]
         public async Task<Object> GetLogedUser()
@@ -142,7 +156,12 @@ namespace Crypto_BankingREG.Controllers
             };
         }
 
-
+        /// <summary>
+        /// Uredi svoje podatke
+        /// </summary> 
+        /// <remarks>
+        /// Ovdje možete urediti svoje podatke!
+        /// </remarks>
         [Authorize]
         [HttpPut("UpdateUser")]
         public async Task<IActionResult> UpdateUser(ApplicationUser userView, string password)
@@ -182,7 +201,6 @@ namespace Crypto_BankingREG.Controllers
         /// <summary>
         /// Dohvatanje odabranog korisnika
         /// </summary>
-
         [Authorize(Roles = "Admin")]
         [HttpGet("get-user-by-id/{id}")]
         public IActionResult GetUserById(string id)
@@ -233,6 +251,12 @@ namespace Crypto_BankingREG.Controllers
 
         }
 
+        /// <summary>
+        /// Izbriši svoj račun
+        /// </summary> 
+        /// <remarks>
+        /// Na ovom mjestu možete izbrisati svoj račun!
+        /// </remarks>
         [Authorize]
         [HttpDelete("DeleteUser")]
         public async Task<IActionResult> DeleteUser()

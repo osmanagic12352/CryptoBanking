@@ -4,6 +4,14 @@
         <name>Crypto-BankingREG</name>
     </assembly>
     <members>
+        <member name="M:Crypto_BankingREG.Controllers.ApplicationUserController.Login(Crypto_BankingREG.Models.ViewModels.LoginModelView)">
+            <summary>
+            Logiranje korisnika
+            </summary> 
+            <remarks>
+            Upišite svoj username i password kako biste se prijavili na stranicu!
+            </remarks>
+        </member>
         <member name="M:Crypto_BankingREG.Controllers.ApplicationUserController.InsertUser(Crypto_BankingREG.Models.ApplicationUserView)">
             <summary>
             Registracija korisnika
@@ -22,6 +30,22 @@
             Password mora sadržazi minimalno:<br>
             6 znakova</br>
             1 broj
+            </remarks>
+        </member>
+        <member name="M:Crypto_BankingREG.Controllers.ApplicationUserController.GetLogedUser">
+            <summary>
+            Informacije korisnika
+            </summary> 
+            <remarks>
+            Ovdje možete provjeriti svoje informacije!
+            </remarks>
+        </member>
+        <member name="M:Crypto_BankingREG.Controllers.ApplicationUserController.UpdateUser(Crypto_BankingREG.Models.ApplicationUser,System.String)">
+            <summary>
+            Uredi svoje podatke
+            </summary> 
+            <remarks>
+            Ovdje možete urediti svoje podatke!
             </remarks>
         </member>
         <member name="M:Crypto_BankingREG.Controllers.ApplicationUserController.GetAllUsers">
@@ -43,6 +67,14 @@
             <summary>
             Brisanje korisnika
             </summary> 
+        </member>
+        <member name="M:Crypto_BankingREG.Controllers.ApplicationUserController.DeleteUser">
+            <summary>
+            Izbriši svoj račun
+            </summary> 
+            <remarks>
+            Na ovom mjestu možete izbrisati svoj račun!
+            </remarks>
         </member>
         <member name="M:Crypto_BankingREG.Controllers.PaymentDetailController.AddPaymentDetail(Crypto_BankingREG.Models.ViewModels.PaymentDetailView)">
             <summary>
